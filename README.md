@@ -98,7 +98,7 @@ Distributed under the Creative Commons License. See `LICENSE` for more informati
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/vsrivastava3939/csa-final-project?logo=NBA&style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/vsrivastava3939/csa-final-project?logo=GitHub&style=for-the-badge
 [contributors-url]: https://github.com/vsrivastava3939/csa-final-project/graphs/contributors
 [stars-shield]: https://img.shields.io/github/stars/vsrivastava3939/csa-final-project?logo=GitHub&style=for-the-badge
 [stars-url]: https://github.com/vsrivastava3939/csa-final-project/stargazers
