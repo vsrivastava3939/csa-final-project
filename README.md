@@ -43,13 +43,13 @@ Install Java (follow Oracle's steps, they explain it better than I could)
    - Windows:
 
    ```sh
-   cd %homepath%\Downloads\csa-final-project-main\code\
+   cd %homepath%\Downloads\csa-final-project-main\code\Statsketball
    ```
 
    - Mac/Linux:
 
    ```sh
-   cd $HOME\Downloads\csa-final-project-main\code\
+   cd $HOME\Downloads\csa-final-project-main\code\Statsketball
    ```
 
 4. Compile the app
