@@ -84,7 +84,7 @@ Here are some demo screenshots and videos
 
 Our projected feature list (and devlog) is on our [Trello Board](https://trello.com/b/bHBmPCi3/project-dev-board)
 
-[<img src="https://i.imgur.com/VRBBvH9.png" alt="Trello Board" width="200"/>](https://trello.com/b/bHBmPCi3/project-dev-board)
+[<img src="https://i.imgur.com/VRBBvH9.png" alt="Trello Board" width="400"/>](https://trello.com/b/bHBmPCi3/project-dev-board)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
