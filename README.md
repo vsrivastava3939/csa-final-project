@@ -55,13 +55,13 @@ Install Java (follow Oracle's steps, they explain it better than I could)
 4. Compile the app
 
    ```sh
-   javac src/com/csap3/*.java -d out/production/code/
+   javac src/com/csap3/*.java -d bin
    ```
 
 5. Run the app
 
    ```sh
-   java -cp out/production/code com.csap3.Statsketball
+   java -cp bin com.csap3.Statsketball
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
