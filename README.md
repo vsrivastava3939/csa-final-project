@@ -19,11 +19,11 @@ Basketball analysis thing that will hopefully look good and get us a good grade 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Here's how to compile + run the program - no Java knowledge needed :D
+Here's how to compile + run the program - no prior Java knowledge needed
 
 ### Prerequisites
 
-Install Java (follow Oracle's steps, they do it better than I would)
+Install Java (follow Oracle's steps, they explain it better than I could)
 * [Oracle's Instructions](https://www.java.com/en/download/help/windows_manual_download.html)
 
 ### Compilation/Running
