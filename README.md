@@ -37,7 +37,7 @@ Install Java (follow Oracle's steps, they explain it better than I could)
    git clone https://github.com/vsrivastava3939/csa-final-project.git
    ```
 
-2. Unzip the repo file (the file named `csa-final-project-main.zip`)
+2. Unzip the repo file (the file named `csa-final-project-main.zip`) to your Downloads folder
 3. Open your terminal and navigate to the code subfolder
 
    - Windows:
@@ -55,13 +55,13 @@ Install Java (follow Oracle's steps, they explain it better than I could)
 4. Compile the app
 
    ```sh
-   javac src/*.java -d bin
+   javac src/com/csap3/*.java -d out/production/code/
    ```
 
 5. Run the app
 
    ```sh
-   java bin/ABAlytics
+   java -cp out/production/code com.csap3.Statsketball
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
