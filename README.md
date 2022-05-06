@@ -84,12 +84,12 @@ Distributed under the Creative Commons License. See `LICENSE.md` for more inform
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/vsrivastava3939/csa-final-project?logo=GitHub&style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/vsrivastava3939/csa-final-project?logo=NBA&style=for-the-badge
 [contributors-url]: https://github.com/vsrivastava3939/csa-final-project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/vsrivastava3939/csa-final-project?logo=Git&style=for-the-badge
-[forks-url]: https://github.com/vsrivastava3939/csa-final-project/network/members
 [stars-shield]: https://img.shields.io/github/stars/vsrivastava3939/csa-final-project?logo=GitHub&style=for-the-badge
 [stars-url]: https://github.com/vsrivastava3939/csa-final-project/stargazers
+[forks-shield]: https://img.shields.io/github/forks/vsrivastava3939/csa-final-project?logo=Git&style=for-the-badge
+[forks-url]: https://github.com/vsrivastava3939/csa-final-project/network/members
 [commits-shield]: https://img.shields.io/github/commit-activity/w/vsrivastava3939/csa-final-project?logo=Git&style=for-the-badge
 [commits-url]: https://github.com/vsrivastava3939/csa-final-project/commits
 [license-shield]: https://img.shields.io/github/license/vsrivastava3939/csa-final-project?logo=Creative&20Commons&style=for-the-badge
