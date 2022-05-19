@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.*;
 
-public class APIHandler {
+public final class APIHandler {
 
 	public static Player makePlayer(int type, String name) {
 
@@ -27,7 +27,7 @@ public class APIHandler {
 					HttpResponse.BodyHandlers.ofString());
 
 			String resBody = response.body();
-			ArrayList<String> parsed = parseResponse(resBody);
+			ArrayList<String> parsed = parsePlayerResponse(resBody);
 			HashMap<String, Object> map = formatResponse(parsed);
 			ObjectMapper mapper = new ObjectMapper();
 			Player player = mapper.convertValue(map, Player.class);
@@ -36,16 +36,45 @@ public class APIHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return null;
+
 	}
 	
 	public static String getImageURL(String name) {
+		// TODO: Implement Google Search API
 		return "";
 	}
+	
+	public static PlayerStats getStats(Player player, int year) {
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + player.getId() + "&season=" + year))
+				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
 
-	public static ArrayList<String> parseResponse(String resBody) {
-		String teamInfo = getTeamInfo(resBody);
+		try {
+			HttpResponse<String> response = HttpClient.newHttpClient().send(request,
+					HttpResponse.BodyHandlers.ofString());
+
+			String resBody = response.body();
+			ArrayList<String> parsed = new ArrayList<String>();
+			parsed.add("{".concat(getInnerBracketInfo(resBody)).concat("}"));
+			System.out.println(parsed);
+			HashMap<String, Object> map = formatResponse(parsed);
+			ObjectMapper mapper = new ObjectMapper();
+			System.out.println(map);
+			PlayerStats playerStats = mapper.convertValue(map, PlayerStats.class);
+			return playerStats;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public static void main(String[] args) {
+		getStats(makePlayer(0, "lebron"), 2018);
+	}
+
+	public static ArrayList<String> parsePlayerResponse(String resBody) {
+		String teamInfo = getInnerBracketInfo(resBody);
 		String playerInfo = resBody.substring(resBody.indexOf("{", 1) + 1, resBody.indexOf(teamInfo) - 9);
 
 		ArrayList<String> response = new ArrayList<String>();
@@ -56,15 +85,20 @@ public class APIHandler {
 		return response;
 	}
 
-	public static String getTeamInfo(String resBody) {
+	/**
+	 * Gets team info for player response, all JSON data for stats response
+	 * @param resBody
+	 * @return
+	 */
+	public static String getInnerBracketInfo(String resBody) {
 		if (resBody.indexOf("}") < 0) {
 			if (resBody.indexOf("{") < 0) {
 				return resBody;
 			} else {
-				return getTeamInfo(resBody.substring(resBody.indexOf("{") + 1));
+				return getInnerBracketInfo(resBody.substring(resBody.indexOf("{") + 1));
 			}
 		} else {
-			return getTeamInfo(resBody.substring(0, resBody.indexOf("}")));
+			return getInnerBracketInfo(resBody.substring(0, resBody.indexOf("}")));
 		}
 
 	}
@@ -75,6 +109,7 @@ public class APIHandler {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		for (int i = 0; i < response.size(); i++) {
 			String resData = response.get(i);
+			System.out.println(resData);
 			try {
 				map.putAll(mapper.readValue(resData, new TypeReference<HashMap<String, Object>>() {
 				}));
@@ -97,11 +132,14 @@ public class APIHandler {
 				it.remove();
 			}
 		}
+
 		map.putAll(formatMap);
 
-		Object teamNameValue = map.get("name");
-		map.remove("name");
-		map.put("teamName", teamNameValue);
+		if(response.size() > 1) {
+			Object teamNameValue = map.get("name");
+			map.remove("name");
+			map.put("teamName", teamNameValue);
+		}
 
 		return map;
 	}
