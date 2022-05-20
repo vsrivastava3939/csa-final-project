@@ -273,7 +273,7 @@ public final class APIHandler {
     /**
      * Replace spaces string.
      *
-     * @param title the title
+     * @param title the title to replace
      * @return the string
      */
     public static String replaceSpaces(String title) {
@@ -289,7 +289,7 @@ public final class APIHandler {
      * Gets image.
      *
      * @param name   the name
-     * @param isTeam the is team
+     * @param isTeam is player or is team
      * @return the image
      */
     public static String getImage(String name, boolean isTeam) {

@@ -70,11 +70,10 @@ Install Java (follow Oracle's steps, they explain it better than I could)
 
 ## Usage
 
-Here are some demo screenshots and videos
+Here are some demo screenshots
 
 - ![Screenshot2](demos/screenshot2.png)
 - ![Screenshot3](demos/screenshot3.png)
-- ![Video]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
