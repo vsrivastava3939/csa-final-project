@@ -62,7 +62,9 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<EntityInfo> playerInfo = APIHandler.makePlayer(nameInput.getText(),
                         Integer.valueOf(yearInput.getText()));
-                System.out.println(playerInfo);
+                for(EntityInfo entity : playerInfo) {
+                	System.out.println("Entity Instance Variables: " + entity.toString());
+                }
                 PlayerScreen playerScreen = new PlayerScreen(playerInfo);
                 JButton backButton = new JButton("Back");
                 backButton.setFont(Constants.LABEL_FONT);
@@ -88,9 +90,23 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 ArrayList<EntityInfo> teamInfo = APIHandler.makeTeam(nameInput.getText(),
                         Integer.valueOf(yearInput.getText()));
-                System.out.println(teamInfo);
+                for(EntityInfo entity : teamInfo) {
+                	System.out.println("Entity Instance Variables: " + entity.toString());
+                }
                 TeamScreen teamScreen = new TeamScreen(teamInfo);
 
+                JButton backButton = new JButton("Back");
+                backButton.setFont(Constants.LABEL_FONT);
+                backButton.setBounds(Constants.WIDTH / 2 - 100, 550, 200, 50);
+                teamScreen.add(backButton);
+
+                backButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        teamScreen.setVisible(false);
+                        search.setVisible(true);
+                    }
+                });
                 frame.add(teamScreen);
                 search.setVisible(false);
                 teamScreen.setVisible(true);

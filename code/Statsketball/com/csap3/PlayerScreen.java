@@ -34,7 +34,6 @@ public class PlayerScreen extends JPanel {
         playerPic.setBounds(Constants.WIDTH / 2 - 100, 200, 300, 300);
         try {
             URL picURL = new URL(APIHandler.getImage(APIHandler.replaceSpaces(name), false));
-            System.out.println(picURL);
             Image playerPicImage = ImageIO.read(picURL);
             playerPic.setIcon(new ImageIcon(
                     new ImageIcon(playerPicImage).getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT)));
