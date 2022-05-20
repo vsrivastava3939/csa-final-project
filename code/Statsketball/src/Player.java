@@ -1,20 +1,16 @@
-public class Player {
+public class Player extends EntityInfo {
 	
 	private String firstName, lastName, position;
 	private String abbreviation, city, conference, division, fullName, teamName;
-	private int id, heightFeet, heightInches, teamId;
+	private int heightFeet, heightInches, teamId;
 
-	public Player() {
-		
-	}
-	
-	
 	@Override
 	public String toString() {
 		return "Player [firstName=" + firstName + ", lastName=" + lastName + ", position=" + position
-				+ ", abbreviation=" + abbreviation + ", city=" + city + ", conference=" + conference + ", division="
-				+ division + ", fullName=" + fullName + ", teamName=" + teamName + ", id=" + id + ", heightFeet="
-				+ heightFeet + ", heightInches=" + heightInches + ", teamId=" + teamId + "]";
+				+ ", abbreviation=" + abbreviation + ", city=" + city
+				+ ", conference=" + conference + ", division=" + division + ", fullName=" + fullName + ", teamName="
+				+ teamName + ", heightFeet=" + heightFeet + ", heightInches=" + heightInches
+				+ ", teamId=" + teamId + "]";
 	}
 
 
@@ -142,20 +138,6 @@ public class Player {
 	 */
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	/**

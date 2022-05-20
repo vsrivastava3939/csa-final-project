@@ -13,7 +13,10 @@ public class SearchScreen extends JPanel {
 		nameLabel.setBounds(375, 150, 200, 50);
 		add(nameLabel);
 
-
+		JLabel yearLabel = new JLabel("Year: ");
+        yearLabel.setFont(Constants.LABEL_FONT);
+        yearLabel.setBounds(375, 205, 200, 50);
+        add(yearLabel);
 		
 		setSize(Constants.WIDTH, Constants.HEIGHT);
 

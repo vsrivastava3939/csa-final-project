@@ -1,9 +1,20 @@
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class PlayerStats extends Stats {
+@JsonIgnoreProperties
+public class PlayerStats extends EntityInfo {
 	private double fg3a, blk, ftPct, fga, ast, dreb, stl, fgm;
-	private double fgPct, reb, pts, fta, min, fg3m, oreb, gamesPlayed;
+	private double fgPct, reb, pts, fta, fg3m, oreb, gamesPlayed;
 	private double pf, season, turnover, fg3Pct, ftm, playerId;
+	private String min;
 
+	@Override
+	public String toString() {
+		return "PlayerStats [fg3a=" + fg3a + ", blk=" + blk + ", ftPct=" + ftPct + ", fga=" + fga + ", ast=" + ast
+				+ ", dreb=" + dreb + ", stl=" + stl + ", fgm=" + fgm + ", fgPct=" + fgPct + ", reb=" + reb + ", pts="
+				+ pts + ", fta=" + fta + ", min=" + min + ", fg3m=" + fg3m + ", oreb=" + oreb + ", gamesPlayed="
+				+ gamesPlayed + ", pf=" + pf + ", season=" + season + ", turnover=" + turnover + ", fg3Pct=" + fg3Pct
+				+ ", ftm=" + ftm + ", playerId=" + playerId + "]";
+	}
 	/**
 	 * @return the fg3a
 	 */
@@ -151,13 +162,13 @@ public class PlayerStats extends Stats {
 	/**
 	 * @return the min
 	 */
-	public double getMin() {
+	public String getMin() {
 		return min;
 	}
 	/**
 	 * @param min the min to set
 	 */
-	public void setMin(double min) {
+	public void setMin(String min) {
 		this.min = min;
 	}
 	/**

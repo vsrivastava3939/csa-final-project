@@ -4,22 +4,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.*;
 
 public final class APIHandler {
 
-	public static Player makePlayer(int type, String name) {
-
-		if (name.indexOf(" ") >= 0) {
-			name = name.substring(0, name.indexOf(" "));
-		}
+	public static ArrayList<EntityInfo> makePlayer(String name, int year) {
+		name = replaceSpaces(name);
 
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("https://free-nba.p.rapidapi.com/players?search=" + name + "&per_page=1&page=0"))
-				.header("X-RapidAPI-Host", "free-nba.p.rapidapi.com")
-				.header("X-RapidAPI-Key", "47c032da53mshd3c8594716c1b01p1fb01fjsnc1cb83b75c2e")
+				.uri(URI.create("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + name))
 				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
 
 		try {
@@ -27,27 +23,59 @@ public final class APIHandler {
 					HttpResponse.BodyHandlers.ofString());
 
 			String resBody = response.body();
-			ArrayList<String> parsed = parsePlayerResponse(resBody);
-			HashMap<String, Object> map = formatResponse(parsed);
-			ObjectMapper mapper = new ObjectMapper();
-			Player player = mapper.convertValue(map, Player.class);
-			return player;
+			ArrayList<EntityInfo> playerList = getEntityResponse(resBody, "Player");
+			ArrayList<EntityInfo> result = new ArrayList<EntityInfo>();
+			result.add(playerList.get(0));
+			result.add(getStats(playerList.get(0), year));
+			return result;
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Player not Found!");
 		}
 		return null;
 
 	}
-	
+
+	public static ArrayList<EntityInfo> makeTeam(String name, int year) {
+		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://www.balldontlie.io/api/v1/teams"))
+				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
+
+		try {
+			HttpResponse<String> response = HttpClient.newHttpClient().send(request,
+					HttpResponse.BodyHandlers.ofString());
+
+			String resBody = response.body();
+			System.out.println(resBody);
+			ArrayList<EntityInfo> teamList = getEntityResponse(resBody, "Team");
+			System.out.println(teamList);
+			ArrayList<EntityInfo> result = new ArrayList<EntityInfo>();
+			for (EntityInfo entity : teamList) {
+				Team team = (Team) entity;
+				System.out.println(team);
+				if (name.toLowerCase().indexOf(team.getName().toLowerCase()) >= 0) {
+					result.add(team);
+					result.add(getTeamStats(team, year));
+				}
+			}
+			return result;
+
+		} catch (Exception e) {
+			System.out.println("Player not Found!");
+		}
+		return null;
+
+	}
+
 	public static String getImageURL(String name) {
 		// TODO: Implement Google Search API
 		return "";
 	}
-	
-	public static PlayerStats getStats(Player player, int year) {
+
+	public static PlayerStats getStats(EntityInfo entityInfo, int year) {
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + player.getId() + "&season=" + year))
+				.uri(URI.create("https://www.balldontlie.io/api/v1/season_averages?player_ids[]="
+						+ ((Player) entityInfo).getId() + "&season=" + year))
+
 				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
 
 		try {
@@ -57,10 +85,9 @@ public final class APIHandler {
 			String resBody = response.body();
 			ArrayList<String> parsed = new ArrayList<String>();
 			parsed.add("{".concat(getInnerBracketInfo(resBody)).concat("}"));
-			System.out.println(parsed);
 			HashMap<String, Object> map = formatResponse(parsed);
 			ObjectMapper mapper = new ObjectMapper();
-			System.out.println(map);
+			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 			PlayerStats playerStats = mapper.convertValue(map, PlayerStats.class);
 			return playerStats;
 
@@ -69,8 +96,13 @@ public final class APIHandler {
 		}
 		return null;
 	}
+
+	public static TeamStats getTeamStats(Team team, int year) {
+		return new TeamStats();
+	}
+
 	public static void main(String[] args) {
-		getStats(makePlayer(0, "lebron"), 2018);
+		System.out.println(makeTeam("lakers", 2018));
 	}
 
 	public static ArrayList<String> parsePlayerResponse(String resBody) {
@@ -85,8 +117,38 @@ public final class APIHandler {
 		return response;
 	}
 
+	public static ArrayList<EntityInfo> getEntityResponse(String resBody, String entityName) {
+		ArrayList<ArrayList<String>> entityList = new ArrayList<ArrayList<String>>();
+		ArrayList<EntityInfo> entities = new ArrayList<EntityInfo>();
+		do {
+			if (entityName.equals("Player"))
+				entityList.add(parsePlayerResponse(resBody));
+			else {
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add("{".concat(getInnerBracketInfo(resBody)).concat("}"));
+				entityList.add(temp);
+			}
+			resBody = "{".concat(resBody.substring(resBody.indexOf(",{") + 1)).concat("}");
+		} while (resBody.indexOf(",{") >= 0);
+
+		for (ArrayList<String> entityJSON : entityList) {
+			HashMap<String, Object> map = formatResponse(entityJSON);
+			ObjectMapper mapper = new ObjectMapper();
+			if (entityName.equals("Player")) {
+				Player player = mapper.convertValue(map, Player.class);
+				entities.add(player);
+			} else if (entityName.equals("Team")) {
+				Team team = mapper.convertValue(map, Team.class);
+				entities.add(team);
+			}
+		}
+
+		return entities;
+	}
+
 	/**
 	 * Gets team info for player response, all JSON data for stats response
+	 * 
 	 * @param resBody
 	 * @return
 	 */
@@ -109,7 +171,6 @@ public final class APIHandler {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		for (int i = 0; i < response.size(); i++) {
 			String resData = response.get(i);
-			System.out.println(resData);
 			try {
 				map.putAll(mapper.readValue(resData, new TypeReference<HashMap<String, Object>>() {
 				}));
@@ -135,12 +196,75 @@ public final class APIHandler {
 
 		map.putAll(formatMap);
 
-		if(response.size() > 1) {
+		if (response.size() > 1) {
 			Object teamNameValue = map.get("name");
 			map.remove("name");
 			map.put("teamName", teamNameValue);
 		}
 
 		return map;
+	}
+
+	public static String replaceSpaces(String title) {
+		if (title.indexOf(" ") < 0) {
+			return title;
+		} else {
+			return title.substring(0, title.indexOf(" ")) + "+"
+					+ replaceSpaces(title.substring(title.indexOf(" ") + 1));
+		}
+	}
+
+	public static String getImage(String name, boolean isTeam) {
+		if (isTeam) {
+			try {
+				System.out.println(name);
+				HttpRequest imageReq = HttpRequest.newBuilder().uri(URI.create(
+						"https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&titles="
+								+ name + "&format=json"))
+						.method("GET", HttpRequest.BodyPublishers.noBody()).build();
+				HttpResponse<String> imageResp = HttpClient.newHttpClient().send(imageReq,
+						HttpResponse.BodyHandlers.ofString());
+				System.out.println(imageResp.body());
+				return getJPGString(imageResp.body());
+			} catch (Exception e) {
+			}
+			return null;
+		} else {
+
+			name = APIHandler.replaceSpaces(name);
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create("https://en.wikipedia.org/w/api.php?action=opensearch&search=" + name
+							+ "&limit=1&namespace=0&format=json"))
+					.method("GET", HttpRequest.BodyPublishers.noBody()).build();
+			try {
+				HttpResponse<String> response = HttpClient.newHttpClient().send(request,
+						HttpResponse.BodyHandlers.ofString());
+				String resp = response.body();
+				String wikiTitle = resp.substring(resp.indexOf(",[\"") + 3, resp.indexOf("\"]"));
+				wikiTitle = APIHandler.replaceSpaces(wikiTitle);
+
+				HttpRequest imageReq = HttpRequest.newBuilder().uri(URI.create(
+						"https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&titles="
+								+ wikiTitle + "&format=json"))
+						.method("GET", HttpRequest.BodyPublishers.noBody()).build();
+				HttpResponse<String> imageResp = HttpClient.newHttpClient().send(imageReq,
+						HttpResponse.BodyHandlers.ofString());
+				return getJPGString(imageResp.body());
+			} catch (Exception e) {
+			}
+			return null;
+		}
+	}
+
+	public static String getJPGString(String resp) {
+		if (resp != null)
+			if (resp.indexOf(".jpg") >= 0)
+				return resp.substring(resp.lastIndexOf("http"), resp.lastIndexOf(".jpg") + 4);
+			else if (resp.indexOf(".svg") >= 0)
+				return resp.substring(resp.lastIndexOf("http"), resp.lastIndexOf(".svg") + 4);
+			else
+				return "";
+		else
+			return "";
 	}
 }
