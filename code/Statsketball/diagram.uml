@@ -3,201 +3,211 @@
   <ID>JAVA</ID>
   <OriginalElement>com.csap3</OriginalElement>
   <nodes>
-    <node x="755.6513513513514" y="515.0243243243243">com.csap3.TeamStats</node>
-    <node x="266.80533783783784" y="515.0243243243243">com.csap3.PlayerStats</node>
-    <node x="1019.1524324324332" y="62.07729729729729">com.csap3.EntityInfo</node>
-    <node x="261.73459459459457" y="83.7508108108108">com.csap3.HomeScreen</node>
-    <node x="185.80533783783784" y="337.96216216216226">com.csap3.PlayerScreen</node>
-    <node x="1757.3513513513515" y="102.23297297297307">com.csap3.Test</node>
-    <node x="533.3270270270268" y="515.0243243243243">com.csap3.Team</node>
-    <node x="845.9919729729729" y="83.7508108108108">com.csap3.Main</node>
-    <node x="438.2670270270271" y="83.7508108108108">com.csap3.SearchScreen</node>
-    <node x="43.80918918918928" y="83.75081081081083">com.csap3.Constants</node>
-    <node x="533.3270270270268" y="337.96216216216226">com.csap3.TeamScreen</node>
-    <node x="1040.7134594594602" y="693.165189189189">com.csap3.APIHandler</node>
-    <node x="43.80918918918928" y="515.0243243243243">com.csap3.Player</node>
+    <node x="738.5000000000001" y="369.5">com.csap3.TeamStats</node>
+    <node x="188.0" y="138.0">com.csap3.PlayerStats</node>
+    <node x="584.9807692307693" y="0.0">com.csap3.EntityInfo</node>
+    <node x="391.6384615384616" y="1176.5">com.csap3.PlayerScreen</node>
+    <node x="1085.7307692307693" y="916.5">com.csap3.HomeScreen</node>
+    <node x="0.0" y="1286.0">com.csap3.Test</node>
+    <node x="523.0000000000001" y="314.0">com.csap3.Team</node>
+    <node x="1232.9346153846154" y="1165.0">com.csap3.Main</node>
+    <node x="1256.7307692307693" y="916.5">com.csap3.SearchScreen</node>
+    <node x="747.5000000000001" y="916.5">com.csap3.TeamScreen</node>
+    <node x="1114.1192307692309" y="392.0">com.csap3.Constants</node>
+    <node x="285.5000000000001" y="773.0">com.csap3.APIHandler</node>
+    <node x="0.0" y="248.0">com.csap3.Player</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.csap3.APIHandler" target="com.csap3.PlayerStats" relationship="DEPENDENCY">
-      <point x="-189.00045945946022" y="-1.891891890863917E-4" />
-      <point x="453.0" y="864.665" />
-      <point x="453.0" y="708.5" />
-      <point x="79.49966216216217" y="-88.52432432432431" />
+      <point x="-110.5" y="-170.0" />
+      <point x="396.0000000000001" y="751.0" />
+      <point x="477.3884615384616" y="751.0" />
+      <point x="477.3884615384616" y="721.0" />
+      <point x="275.0" y="721.0" />
+      <point x="0.0" y="280.5" />
     </edge>
     <edge source="com.csap3.Team" target="com.csap3.EntityInfo" relationship="GENERALIZATION">
-      <point x="-74.50002702702682" y="-3.2432432431050984E-4" />
-      <point x="480.0" y="621.024" />
-      <point x="480.0" y="455.0" />
-      <point x="1076.652" y="455.0" />
-      <point x="-4.3243243317192537E-4" y="39.499702702702706" />
+      <point x="0.0" y="-104.5" />
+      <point x="607.0000000000001" y="117.0" />
+      <point x="435.9807692307693" y="117.0" />
+      <point x="435.9807692307693" y="97.0" />
+      <point x="615.9807692307693" y="97.0" />
+      <point x="-31.0" y="38.0" />
     </edge>
     <edge source="com.csap3.Main" target="com.csap3.HomeScreen" relationship="CREATE">
-      <point x="-14.999972972972955" y="-39.5" />
-      <point x="905.492" y="29.576999999999998" />
-      <point x="330.23459459459457" y="29.576999999999998" />
-      <point x="0.0" y="-28.0" />
+      <point x="-41.75" y="-38.0" />
+      <point x="1274.6846153846154" y="1144.0" />
+      <point x="1263.3884615384616" y="1144.0" />
+      <point x="1263.3884615384616" y="1134.0" />
+      <point x="1161.2307692307693" y="1134.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.APIHandler" target="com.csap3.EntityInfo" relationship="DEPENDENCY">
-      <point x="-4.59459460216749E-4" y="-171.5001891891891" />
-      <point x="1229.713" y="311.0" />
-      <point x="935.492" y="311.0" />
-      <point x="935.492" y="211.0" />
-      <point x="1091.652" y="211.0" />
-      <point x="14.999567567566828" y="39.499702702702706" />
-    </edge>
-    <edge source="com.csap3.PlayerScreen" target="com.csap3.APIHandler" relationship="DEPENDENCY">
-      <point x="14.999662162162167" y="27.99983783783773" />
-      <point x="320.805" y="425.0" />
-      <point x="1259.713" y="425.0" />
-      <point x="29.999540540539783" y="-171.5001891891891" />
-    </edge>
-    <edge source="com.csap3.TeamScreen" target="com.csap3.TeamStats" relationship="DEPENDENCY">
-      <point x="118.49997297297318" y="14.999837837837731" />
-      <point x="907.0" y="380.962" />
-      <point x="907.0" y="565.524" />
-      <point x="60.49964864864853" y="-3.2432432431050984E-4" />
-    </edge>
-    <edge source="com.csap3.Main" target="com.csap3.SearchScreen" relationship="CREATE">
-      <point x="-74.5" y="-11.5" />
-      <point x="70.0" y="0.0" />
-    </edge>
-    <edge source="com.csap3.HomeScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
-      <point x="68.50040540540544" y="1.8918918920007854E-4" />
-      <point x="419.0" y="111.751" />
-      <point x="419.0" y="284.0" />
-      <point x="115.809" y="284.0" />
-      <point x="-1.8918918928534367E-4" y="72.50018918918917" />
-    </edge>
-    <edge source="com.csap3.APIHandler" target="com.csap3.TeamStats" relationship="CREATE">
-      <point x="-189.00045945946022" y="14.999810810810914" />
-      <point x="907.0" y="879.665" />
-      <point x="907.0" y="565.524" />
-      <point x="60.49964864864853" y="-3.2432432431050984E-4" />
-    </edge>
-    <edge source="com.csap3.APIHandler" target="com.csap3.Player" relationship="DEPENDENCY">
-      <point x="14.999540540539783" y="-171.5001891891891" />
-      <point x="1244.713" y="486.0" />
-      <point x="133.309" y="486.0" />
-      <point x="14.999810810810715" y="-172.0003243243243" />
-    </edge>
-    <edge source="com.csap3.Main" target="com.csap3.APIHandler" relationship="DEPENDENCY">
-      <point x="2.7027027044823626E-5" y="-39.4998108108108" />
-      <point x="920.492" y="44.577" />
-      <point x="1244.713" y="44.577" />
-      <point x="1244.713" y="425.0" />
-      <point x="1259.713" y="425.0" />
-      <point x="29.999540540539783" y="-171.5001891891891" />
-    </edge>
-    <edge source="com.csap3.SearchScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
-      <point x="-70.0000270270271" y="1.8918918920007854E-4" />
-      <point x="419.0" y="111.751" />
-      <point x="419.0" y="284.0" />
-      <point x="115.809" y="284.0" />
-      <point x="-1.8918918928534367E-4" y="72.50018918918917" />
-    </edge>
-    <edge source="com.csap3.PlayerStats" target="com.csap3.EntityInfo" relationship="GENERALIZATION">
-      <point x="79.49966216216217" y="-3.2432432431050984E-4" />
-      <point x="480.0" y="797.024" />
-      <point x="480.0" y="455.0" />
-      <point x="1076.652" y="455.0" />
-      <point x="-4.3243243317192537E-4" y="39.499702702702706" />
+      <point x="-110.5" y="-170.0" />
+      <point x="396.0000000000001" y="751.0" />
+      <point x="477.3884615384616" y="751.0" />
+      <point x="477.3884615384616" y="107.0" />
+      <point x="1075.2307692307693" y="107.0" />
+      <point x="1075.2307692307693" y="97.0" />
+      <point x="677.9807692307693" y="97.0" />
+      <point x="31.0" y="38.0" />
     </edge>
     <edge source="com.csap3.Main" target="com.csap3.EntityInfo" relationship="DEPENDENCY">
-      <point x="-14.999972972972955" y="39.5001891891892" />
-      <point x="905.492" y="211.0" />
-      <point x="1091.652" y="211.0" />
-      <point x="14.999567567566828" y="39.499702702702706" />
+      <point x="41.75" y="-38.0" />
+      <point x="1358.1846153846154" y="1144.0" />
+      <point x="1455.9346153846154" y="1144.0" />
+      <point x="1455.9346153846154" y="107.0" />
+      <point x="1075.2307692307693" y="107.0" />
+      <point x="1075.2307692307693" y="97.0" />
+      <point x="677.9807692307693" y="97.0" />
+      <point x="31.0" y="38.0" />
     </edge>
     <edge source="com.csap3.Player" target="com.csap3.EntityInfo" relationship="GENERALIZATION">
-      <point x="-1.8918918928534367E-4" y="-172.0003243243243" />
-      <point x="118.309" y="455.0" />
-      <point x="1076.652" y="455.0" />
-      <point x="-4.3243243317192537E-4" y="39.499702702702706" />
+      <point x="0.0" y="-170.5" />
+      <point x="84.0" y="117.0" />
+      <point x="435.9807692307693" y="117.0" />
+      <point x="435.9807692307693" y="97.0" />
+      <point x="615.9807692307693" y="97.0" />
+      <point x="-31.0" y="38.0" />
     </edge>
     <edge source="com.csap3.PlayerScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
-      <point x="-3.3783783783292165E-4" y="-28.00016216216227" />
-      <point x="305.805" y="284.0" />
-      <point x="115.809" y="284.0" />
-      <point x="-1.8918918928534367E-4" y="72.50018918918917" />
-    </edge>
-    <edge source="com.csap3.TeamScreen" target="com.csap3.EntityInfo" relationship="DEPENDENCY">
-      <point x="14.999972972973183" y="-28.00016216216227" />
-      <point x="666.827" y="311.0" />
-      <point x="935.492" y="311.0" />
-      <point x="935.492" y="211.0" />
-      <point x="1091.652" y="211.0" />
-      <point x="14.999567567566828" y="39.499702702702706" />
+      <point x="0.0" y="-26.5" />
+      <point x="529.6384615384616" y="1144.0" />
+      <point x="1075.2307692307693" y="1144.0" />
+      <point x="1075.2307692307693" y="751.0" />
+      <point x="1179.1192307692309" y="751.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.TeamScreen" target="com.csap3.Team" relationship="DEPENDENCY">
-      <point x="118.49997297297318" y="-1.6216216226894176E-4" />
-      <point x="1274.713" y="365.962" />
-      <point x="1274.713" y="655.0" />
-      <point x="1073.5" y="655.0" />
-      <point x="1073.5" y="674.5" />
-      <point x="74.49997297297318" y="53.47567567567569" />
+      <point x="0.0" y="-26.5" />
+      <point x="883.0000000000001" y="731.0" />
+      <point x="607.0000000000001" y="731.0" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="com.csap3.TeamScreen" target="com.csap3.EntityInfo" relationship="DEPENDENCY">
+      <point x="0.0" y="-26.5" />
+      <point x="883.0000000000001" y="721.0" />
+      <point x="914.1846153846154" y="721.0" />
+      <point x="914.1846153846154" y="107.0" />
+      <point x="1075.2307692307693" y="107.0" />
+      <point x="1075.2307692307693" y="97.0" />
+      <point x="677.9807692307693" y="97.0" />
+      <point x="31.0" y="38.0" />
+    </edge>
+    <edge source="com.csap3.PlayerScreen" target="com.csap3.APIHandler" relationship="DEPENDENCY">
+      <point x="0.0" y="-26.5" />
+      <point x="529.6384615384616" y="1144.0" />
+      <point x="506.5000000000001" y="1144.0" />
+      <point x="0.0" y="170.0" />
+    </edge>
+    <edge source="com.csap3.TeamScreen" target="com.csap3.TeamStats" relationship="DEPENDENCY">
+      <point x="0.0" y="-26.5" />
+      <point x="883.0000000000001" y="721.0" />
+      <point x="839.0000000000001" y="721.0" />
+      <point x="33.5" y="49.0" />
+    </edge>
+    <edge source="com.csap3.Main" target="com.csap3.SearchScreen" relationship="CREATE">
+      <point x="-41.75" y="-38.0" />
+      <point x="1274.6846153846154" y="1144.0" />
+      <point x="1263.3884615384616" y="1144.0" />
+      <point x="1263.3884615384616" y="1134.0" />
+      <point x="1336.2307692307693" y="1134.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.PlayerScreen" target="com.csap3.Player" relationship="DEPENDENCY">
-      <point x="-3.3783783783292165E-4" y="27.99983783783773" />
-      <point x="305.805" y="486.0" />
-      <point x="133.309" y="486.0" />
-      <point x="14.999810810810715" y="-172.0003243243243" />
+      <point x="0.0" y="-26.5" />
+      <point x="529.6384615384616" y="1144.0" />
+      <point x="84.0" y="1144.0" />
+      <point x="0.0" y="170.5" />
+    </edge>
+    <edge source="com.csap3.HomeScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
+      <point x="0.0" y="-26.5" />
+      <point x="1161.2307692307693" y="751.0" />
+      <point x="1179.1192307692309" y="751.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.Main" target="com.csap3.Constants" relationship="DEPENDENCY">
-      <point x="2.7027027044823626E-5" y="39.5001891891892" />
-      <point x="920.492" y="284.0" />
-      <point x="115.809" y="284.0" />
-      <point x="-1.8918918928534367E-4" y="72.50018918918917" />
+      <point x="41.75" y="-38.0" />
+      <point x="1358.1846153846154" y="1144.0" />
+      <point x="1455.9346153846154" y="1144.0" />
+      <point x="1455.9346153846154" y="1134.0" />
+      <point x="1426.2307692307693" y="1134.0" />
+      <point x="1426.2307692307693" y="751.0" />
+      <point x="1179.1192307692309" y="751.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.PlayerScreen" target="com.csap3.PlayerStats" relationship="DEPENDENCY">
-      <point x="119.99966216216217" y="-1.6216216226894176E-4" />
-      <point x="453.0" y="365.962" />
-      <point x="453.0" y="708.5" />
-      <point x="79.49966216216217" y="-88.52432432432431" />
+      <point x="0.0" y="-26.5" />
+      <point x="529.6384615384616" y="1144.0" />
+      <point x="275.0" y="1144.0" />
+      <point x="0.0" y="280.5" />
+    </edge>
+    <edge source="com.csap3.APIHandler" target="com.csap3.TeamStats" relationship="CREATE">
+      <point x="110.5" y="-170.0" />
+      <point x="617.0000000000001" y="751.0" />
+      <point x="772.0000000000001" y="751.0" />
+      <point x="-33.5" y="49.0" />
     </edge>
     <edge source="com.csap3.PlayerScreen" target="com.csap3.EntityInfo" relationship="DEPENDENCY">
-      <point x="14.999662162162167" y="-28.00016216216227" />
-      <point x="320.805" y="311.0" />
-      <point x="935.492" y="311.0" />
-      <point x="935.492" y="211.0" />
-      <point x="1091.652" y="211.0" />
-      <point x="14.999567567566828" y="39.499702702702706" />
+      <point x="0.0" y="-26.5" />
+      <point x="529.6384615384616" y="1144.0" />
+      <point x="1060.1846153846154" y="1144.0" />
+      <point x="1060.1846153846154" y="107.0" />
+      <point x="1075.2307692307693" y="107.0" />
+      <point x="1075.2307692307693" y="97.0" />
+      <point x="677.9807692307693" y="97.0" />
+      <point x="31.0" y="38.0" />
     </edge>
     <edge source="com.csap3.TeamScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
-      <point x="-2.702702681744995E-5" y="-28.00016216216227" />
-      <point x="651.827" y="284.0" />
-      <point x="115.809" y="284.0" />
-      <point x="-1.8918918928534367E-4" y="72.50018918918917" />
+      <point x="0.0" y="-26.5" />
+      <point x="883.0000000000001" y="741.0" />
+      <point x="1179.1192307692309" y="741.0" />
+      <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.csap3.TeamStats" target="com.csap3.EntityInfo" relationship="GENERALIZATION">
-      <point x="-3.513513514690203E-4" y="-50.50032432432431" />
-      <point x="816.151" y="455.0" />
-      <point x="1076.652" y="455.0" />
-      <point x="-4.3243243317192537E-4" y="39.499702702702706" />
+      <point x="0.0" y="-49.0" />
+      <point x="805.5000000000001" y="117.0" />
+      <point x="435.9807692307693" y="117.0" />
+      <point x="435.9807692307693" y="97.0" />
+      <point x="615.9807692307693" y="97.0" />
+      <point x="-31.0" y="38.0" />
     </edge>
-    <edge source="com.csap3.Main" target="com.csap3.PlayerScreen" relationship="CREATE">
-      <point x="-74.5" y="34.0" />
-      <point x="290.805" y="157.2508108108108" />
-      <point x="-15.000337837837833" y="-28.0" />
+    <edge source="com.csap3.APIHandler" target="com.csap3.Player" relationship="DEPENDENCY">
+      <point x="-110.5" y="-170.0" />
+      <point x="396.0000000000001" y="751.0" />
+      <point x="477.3884615384616" y="751.0" />
+      <point x="477.3884615384616" y="731.0" />
+      <point x="84.0" y="731.0" />
+      <point x="0.0" y="170.5" />
     </edge>
     <edge source="com.csap3.APIHandler" target="com.csap3.Team" relationship="DEPENDENCY">
-      <point x="-156.21345945946018" y="-171.5001891891891" />
-      <point x="1073.5" y="674.5" />
-      <point x="74.49997297297318" y="53.47567567567569" />
+      <point x="-110.5" y="-170.0" />
+      <point x="396.0000000000001" y="751.0" />
+      <point x="477.3884615384616" y="751.0" />
+      <point x="477.3884615384616" y="741.0" />
+      <point x="607.0000000000001" y="741.0" />
+      <point x="0.0" y="104.5" />
     </edge>
-    <edge source="com.csap3.Main" target="com.csap3.TeamScreen" relationship="CREATE">
-      <point x="-51.340621621621494" y="39.5" />
-      <point x="869.1513513513514" y="350.962" />
-      <point x="118.5" y="-15.000162162162269" />
+    <edge source="com.csap3.SearchScreen" target="com.csap3.Constants" relationship="DEPENDENCY">
+      <point x="0.0" y="-26.5" />
+      <point x="1336.2307692307693" y="751.0" />
+      <point x="1179.1192307692309" y="751.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.csap3.PlayerStats" target="com.csap3.EntityInfo" relationship="GENERALIZATION">
+      <point x="2.8421709430404007E-14" y="-280.5" />
+      <point x="275.0" y="117.0" />
+      <point x="435.9807692307693" y="117.0" />
+      <point x="435.9807692307693" y="97.0" />
+      <point x="615.9807692307693" y="97.0" />
+      <point x="-31.0" y="38.0" />
     </edge>
   </edges>
-  <settings layout="Compact" zoom="0.8140859658208183" showDependencies="true" x="976.3893129770993" y="561.7837150127226" />
-  <SelectedNodes>
-    <node>com.csap3.Test</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic" zoom="0.7265193370165746" showDependencies="true" x="728.0" y="714.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
-    <Category>Fields</Category>
     <Category>Methods</Category>
     <Category>Properties</Category>
   </Categories>
