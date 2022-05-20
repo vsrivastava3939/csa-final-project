@@ -30,7 +30,7 @@ public class TeamScreen extends JPanel {
         JLabel teamPic = new JLabel();
         teamPic.setBounds(Constants.WIDTH / 2 - 100, 200, 300, 300);
         teamPic.setIcon(new ImageIcon(
-                new ImageIcon("src/TeamPics/" + name + ".png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
+                new ImageIcon("res/TeamPics/" + name + ".png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
         add(teamPic);
 
         JLabel ppgLabel = new JLabel("Points per Game: ");
