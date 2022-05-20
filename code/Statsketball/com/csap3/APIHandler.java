@@ -78,7 +78,6 @@ public final class APIHandler {
 			return result;
 
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return null;
 
@@ -111,7 +110,6 @@ public final class APIHandler {
 			return playerStats;
 
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return null;
 	}
@@ -149,6 +147,11 @@ public final class APIHandler {
 		return teamStats;
 	}
 
+	/**
+	 * Uses Bubble Sort to find the highest points scored in a season.
+	 * @param scoreList List of scores
+	 * @return Highest points by a team in a season
+	 */
 	public static int mostPtsScored(ArrayList<Integer> scoreList) {
 		for (int i = 0; i < scoreList.size() - 1; i++) {
 			for (int j = 1; j < scoreList.size() - i; j++) {
@@ -163,6 +166,12 @@ public final class APIHandler {
 		return scoreList.get(scoreList.size() - 1);
 	}
 
+	/**
+	 * Creates an ArrayList of all the game scores in a season by a team.
+	 * @param resBody API response
+	 * @param team Team to find information of
+	 * @return All game scores in ArrayList
+	 */
 	public static ArrayList<Integer> getTeamScores(String resBody, Team team) {
 		ArrayList<Integer> scores = new ArrayList<Integer>();
 
@@ -178,10 +187,6 @@ public final class APIHandler {
 		return scores;
 	}
 	
-	public static void main(String[] args) {
-		makeTeam("warriors", 2018);
-	}
-
 	/**
 	 * Parse player response array list.
 	 *
@@ -271,7 +276,6 @@ public final class APIHandler {
 				map.putAll(mapper.readValue(resData, new TypeReference<HashMap<String, Object>>() {
 				}));
 			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 
